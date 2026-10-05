@@ -1,0 +1,19 @@
+{
+  "name": "ketikkilat-monkeytype",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Game tes mengetik ala Monkeytype dalam Bahasa Indonesia & Inggris dengan audio switch mechanical dan grafik performa",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "monkeytype",
+    "typing-speed",
+    "game-mengetik",
+    "wpm"
+  ],
+  "author": "KetikKilat",
+  "license": "MIT"
+}

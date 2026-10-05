@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KetikKilat - Uji Kecepatan & Kepresisian Mengetik (Monkeytype ID)</title>
+  <meta name="description" content="Game tes mengetik online ala Monkeytype dengan dukungan Bahasa Indonesia dan Inggris. Uji kecepatan WPM, akurasi, dan konsistensi mengetik dengan grafik performa real-time dan efek suara mechanical keyboard.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e2b714'><path d='M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z'/></svg>">
+</head>
+<body data-theme="serika-dark">
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="logo-container" id="btn-home" title="KetikKilat Beranda">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/>
+        </svg>
+        <h1 class="logo-text">ketik<span>kilat</span></h1>
+        <span class="logo-badge">ID & EN</span>
+      </div>
+
+      <div class="nav-actions">
+        <button class="action-btn" id="btn-toggle-keyboard" title="Tampilkan/Sembunyikan Keyboard Visual">
+          <svg viewBox="0 0 24 24"><path d="M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
+        </button>
+        <button class="action-btn" id="btn-open-history" title="Riwayat & Rekor Pribadi">
+          <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+        </button>
+        <button class="action-btn" id="btn-open-settings" title="Pengaturan Tema & Audio">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Configuration Bar -->
+    <section class="config-bar-wrapper" id="config-bar-wrapper">
+      <div class="config-bar">
+        <!-- Language Group -->
+        <div class="config-group" id="lang-options">
+          <button class="config-btn active" data-lang="indonesia" title="Bahasa Indonesia">
+            <span>indonesia</span>
+          </button>
+          <button class="config-btn" data-lang="english" title="English">
+            <span>english</span>
+          </button>
+        </div>
+
+        <div class="config-divider"></div>
+
+        <!-- Mode Group -->
+        <div class="config-group" id="mode-options">
+          <button class="config-btn active" data-mode="time" title="Mode Waktu">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <span>waktu</span>
+          </button>
+          <button class="config-btn" data-mode="words" title="Mode Jumlah Kata">
+            <svg viewBox="0 0 24 24"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/></svg>
+            <span>kata</span>
+          </button>
+          <button class="config-btn" data-mode="quote" title="Mode Kalimat / Kutipan">
+            <svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+            <span>kalimat</span>
+          </button>
+          <button class="config-btn" data-mode="zen" title="Mode Santai Bebas">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>zen</span>
+          </button>
+        </div>
+
+        <div class="config-divider"></div>
+
+        <!-- Mode Sub-options (Time seconds or Word count) -->
+        <div class="config-group" id="sub-options">
+          <button class="config-btn" data-val="15">15</button>
+          <button class="config-btn active" data-val="30">30</button>
+          <button class="config-btn" data-val="60">60</button>
+          <button class="config-btn" data-val="120">120</button>
+        </div>
+
+        <div class="config-divider"></div>
+
+        <!-- Extra modifiers (Punctuation, Numbers) -->
+        <div class="config-group">
+          <button class="config-btn" id="btn-toggle-punct" title="Sertakan Tanda Baca">
+            <span>@ tanda baca</span>
+          </button>
+          <button class="config-btn" id="btn-toggle-num" title="Sertakan Angka">
+            <span># angka</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Game Area -->
+    <main id="game-main">
+      <!-- Live Stats (Timer / Remaining / Live WPM) -->
+      <div class="live-stats" id="live-stats">
+        <div class="live-timer" id="live-timer">30</div>
+        <div class="live-metrics">
+          <span>WPM: <b id="live-wpm">0</b></span>
+          <span>Akurasi: <b id="live-acc">100%</b></span>
+        </div>
+      </div>
+
+      <!-- Test Typing Container -->
+      <div class="test-area" id="test-area">
+        <input type="text" id="words-input" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus>
+        
+        <div class="focus-overlay" id="focus-overlay">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14v-4h2v4h-2zm0-6V8h2v2h-2z"/></svg>
+          <span>Klik atau mulai mengetik untuk fokus</span>
+        </div>
+
+        <div class="words-wrapper" id="words-wrapper">
+          <div id="caret"></div>
+          <div class="words" id="words-container">
+            <!-- Words injected dynamically via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Controls -->
+      <div class="test-bottom-controls">
+        <button class="restart-btn" id="btn-restart" title="Ulangi Tes (Tab + Enter)">
+          <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+          <span>Mulai Ulang</span>
+          <span class="shortcut-hint">tab + enter</span>
+        </button>
+      </div>
+
+      <!-- Virtual Keyboard Visualizer -->
+      <section class="keyboard-section hidden" id="keyboard-section">
+        <div class="keyboard" id="visual-keyboard">
+          <div class="kb-row">
+            <div class="kb-key" data-key="`">`</div>
+            <div class="kb-key" data-key="1">1</div>
+            <div class="kb-key" data-key="2">2</div>
+            <div class="kb-key" data-key="3">3</div>
+            <div class="kb-key" data-key="4">4</div>
+            <div class="kb-key" data-key="5">5</div>
+            <div class="kb-key" data-key="6">6</div>
+            <div class="kb-key" data-key="7">7</div>
+            <div class="kb-key" data-key="8">8</div>
+            <div class="kb-key" data-key="9">9</div>
+            <div class="kb-key" data-key="0">0</div>
+            <div class="kb-key" data-key="-">-</div>
+            <div class="kb-key" data-key="=">=</div>
+            <div class="kb-key key-wide" data-key="Backspace">⌫</div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key key-wide" data-key="Tab">tab</div>
+            <div class="kb-key" data-key="q">q</div>
+            <div class="kb-key" data-key="w">w</div>
+            <div class="kb-key" data-key="e">e</div>
+            <div class="kb-key" data-key="r">r</div>
+            <div class="kb-key" data-key="t">t</div>
+            <div class="kb-key" data-key="y">y</div>
+            <div class="kb-key" data-key="u">u</div>
+            <div class="kb-key" data-key="i">i</div>
+            <div class="kb-key" data-key="o">o</div>
+            <div class="kb-key" data-key="p">p</div>
+            <div class="kb-key" data-key="[">[</div>
+            <div class="kb-key" data-key="]">]</div>
+            <div class="kb-key" data-key="\">\</div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key key-wider" data-key="CapsLock">caps</div>
+            <div class="kb-key" data-key="a">a</div>
+            <div class="kb-key" data-key="s">s</div>
+            <div class="kb-key" data-key="d">d</div>
+            <div class="kb-key" data-key="f">f</div>
+            <div class="kb-key" data-key="g">g</div>
+            <div class="kb-key" data-key="h">h</div>
+            <div class="kb-key" data-key="j">j</div>
+            <div class="kb-key" data-key="k">k</div>
+            <div class="kb-key" data-key="l">l</div>
+            <div class="kb-key" data-key=";">;</div>
+            <div class="kb-key" data-key="'">'</div>
+            <div class="kb-key key-wider" data-key="Enter">enter</div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key key-wider" data-key="ShiftLeft">shift</div>
+            <div class="kb-key" data-key="z">z</div>
+            <div class="kb-key" data-key="x">x</div>
+            <div class="kb-key" data-key="c">c</div>
+            <div class="kb-key" data-key="v">v</div>
+            <div class="kb-key" data-key="b">b</div>
+            <div class="kb-key" data-key="n">n</div>
+            <div class="kb-key" data-key="m">m</div>
+            <div class="kb-key" data-key=",">,</div>
+            <div class="kb-key" data-key=".">.</div>
+            <div class="kb-key" data-key="/">/</div>
+            <div class="kb-key key-wider" data-key="ShiftRight">shift</div>
+          </div>
+          <div class="kb-row">
+            <div class="kb-key key-space" data-key=" ">space</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Result Screen -->
+    <section class="result-screen" id="result-screen">
+      <div class="result-header">
+        <div class="result-main-stats">
+          <div class="stat-hero wpm">
+            <span class="stat-label">wpm</span>
+            <span class="stat-val" id="res-wpm">0</span>
+          </div>
+          <div class="stat-hero acc">
+            <span class="stat-label">akurasi</span>
+            <span class="stat-val" id="res-acc">0%</span>
+          </div>
+        </div>
+        <div class="result-meta">
+          <span class="meta-badge" id="res-test-type">waktu 30s | indonesia</span>
+          <div id="res-quote-author" style="display: none; font-style: italic; margin-top: 4px;"></div>
+        </div>
+      </div>
+
+      <!-- Chart Canvas -->
+      <div class="chart-container">
+        <canvas id="chart-canvas"></canvas>
+      </div>
+
+      <!-- Secondary Stats Grid -->
+      <div class="secondary-stats">
+        <div class="sub-stat-card">
+          <div class="sub-stat-label">raw wpm</div>
+          <div class="sub-stat-val" id="res-raw">0</div>
+        </div>
+        <div class="sub-stat-card">
+          <div class="sub-stat-label">karakter (benar/salah/ekstra)</div>
+          <div class="sub-stat-val chars-detail" id="res-chars">
+            <span class="c-cor">0</span> / <span class="c-inc">0</span> / <span class="c-ext">0</span>
+          </div>
+        </div>
+        <div class="sub-stat-card">
+          <div class="sub-stat-label">konsistensi</div>
+          <div class="sub-stat-val" id="res-consistency">0%</div>
+        </div>
+        <div class="sub-stat-card">
+          <div class="sub-stat-label">waktu total</div>
+          <div class="sub-stat-val" id="res-time">0s</div>
+        </div>
+      </div>
+
+      <!-- Result Action Buttons -->
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-next-test">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+          <span>Tes Berikutnya</span>
+        </button>
+        <button class="btn-secondary" id="btn-repeat-test">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+          <span>Ulangi Teks Ini</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- History Modal -->
+    <div class="modal-backdrop" id="modal-history">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title">
+            <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            <span>Riwayat & Rekor Tes Mengetik</span>
+          </div>
+          <button class="close-btn" data-close="modal-history">&times;</button>
+        </div>
+        <div class="modal-body" id="history-list">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-backdrop" id="modal-settings">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            <span>Pengaturan Tema & Suara</span>
+          </div>
+          <button class="close-btn" data-close="modal-settings">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-row">
+            <div class="setting-info">
+              <h4>Efek Suara Keyboard</h4>
+              <p>Simulasi switch mechanical keyboard responsif</p>
+            </div>
+            <select class="setting-select" id="select-sound">
+              <option value="clicky">Cherry MX Clicky (Biru)</option>
+              <option value="thock">Holy Panda Thock (Linear)</option>
+              <option value="bubble">Bubble Pop (Lembut)</option>
+              <option value="off">Mute / Nonaktif</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <h4>Volume Suara</h4>
+              <p>Atur tingkat kekerasan efek audio tombol</p>
+            </div>
+            <input type="range" id="sound-volume" min="0" max="1" step="0.05" value="0.4" style="cursor: pointer;">
+          </div>
+
+          <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 0.6rem;">
+            <div class="setting-info">
+              <h4>Tema Warna Tampilan</h4>
+              <p>Pilih palet warna favorit Anda</p>
+            </div>
+            <div class="theme-grid" id="theme-grid">
+              <div class="theme-card active" data-theme="serika-dark">
+                <div class="theme-preview-dots">
+                  <div class="theme-dot" style="background:#323437"></div>
+                  <div class="theme-dot" style="background:#e2b714"></div>
+                  <div class="theme-dot" style="background:#d1d0c5"></div>
+                </div>
+                <div class="theme-name">Serika Dark</div>
+              </div>
+              <div class="theme-card" data-theme="cyberpunk">
+                <div class="theme-preview-dots">
+                  <div class="theme-dot" style="background:#0b0e14"></div>
+                  <div class="theme-dot" style="background:#00f0ff"></div>
+                  <div class="theme-dot" style="background:#ff0055"></div>
+                </div>
+                <div class="theme-name">Cyberpunk</div>
+              </div>
+              <div class="theme-card" data-theme="dracula">
+                <div class="theme-preview-dots">
+                  <div class="theme-dot" style="background:#282a36"></div>
+                  <div class="theme-dot" style="background:#bd93f9"></div>
+                  <div class="theme-dot" style="background:#50fa7b"></div>
+                </div>
+                <div class="theme-name">Dracula</div>
+              </div>
+              <div class="theme-card" data-theme="nord">
+                <div class="theme-preview-dots">
+                  <div class="theme-dot" style="background:#2e3440"></div>
+                  <div class="theme-dot" style="background:#88c0d0"></div>
+                  <div class="theme-dot" style="background:#eceff4"></div>
+                </div>
+                <div class="theme-name">Nord</div>
+              </div>
+              <div class="theme-card" data-theme="sunset">
+                <div class="theme-preview-dots">
+                  <div class="theme-dot" style="background:#1a1528"></div>
+                  <div class="theme-dot" style="background:#ff7e47"></div>
+                  <div class="theme-dot" style="background:#f2e9e4"></div>
+                </div>
+                <div class="theme-name">Sunset</div>
+              </div>
+              <div class="theme-card" data-theme="matrix">
+                <div class="theme-preview-dots">
+                  <div class="theme-dot" style="background:#0d1117"></div>
+                  <div class="theme-dot" style="background:#00ff66"></div>
+                  <div class="theme-dot" style="background:#c9d1d9"></div>
+                </div>
+                <div class="theme-name">Matrix</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-left">
+        <div class="footer-key-hint"><kbd>tab</kbd> + <kbd>enter</kbd> - mulai ulang</div>
+        <div class="footer-key-hint"><kbd>esc</kbd> - fokus mengetik</div>
+      </div>
+      <div class="footer-right">
+        <span>KetikKilat - Monkeytype Indonesian Edition &copy; 2026</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>
